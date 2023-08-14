@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body {
+        background-color: #f0f0f0;
+    }
+
+    .banner {
+        background-color: #007bff;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+    }
+
+    .task-form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+    }
+
+    .task-form {
+        width: 500px;
+        height: 350px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid blue; /* Updated border color to blue */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>ToDo</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+<br><br>
+<div class="container task-form-container">
+    <div class="shadow-lg rounded task-form">
+        <h2><b>Task Update Form</b></h2><br>
+        <form method="POST">
+            {% csrf_token %}
+            <p><h4>{{f.as_p}}</h4></p>
+            <input type="submit" value="Confirm" class="btn btn-success">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
